@@ -16,7 +16,7 @@ const signToken = (id) => {
 const createSendToken = (user, statusCode, res) => {
   const token = signToken(user._id);
   const { name, photo, activity } = user;
-  console.log(name, photo, activity);
+  //console.log(name, photo, activity);
   res.status(statusCode).json({
     status: "success",
     token,

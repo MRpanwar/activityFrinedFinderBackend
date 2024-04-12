@@ -52,10 +52,14 @@ exports.getNearByUsers = catchAsync(async (req, res, next) => {
 
   Promise.all(diatancePromises)
     .then(function (results) {
+      const shortResultByDistanceASC = results.sort(
+        (a, b) => a.distance.split(" ")[0] - b.distance.split(" ")[0]
+      );
+      //console.log(shortResultByDistanceASC);
       res.status(200).json({
         status: "success",
         data: {
-          results,
+          results: shortResultByDistanceASC,
         },
       });
     })
