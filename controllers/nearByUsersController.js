@@ -2,6 +2,7 @@ const User = require("../models/userModel.js");
 const catchAsync = require("../utils/catchAsync.js");
 const AppError = require("../utils/appError.js");
 const { googleApiKey } = require("./../config.js");
+
 const getDistanceBetweenUser = async (origins, destinations, userData) => {
   const url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=INDIA+${origins}&destinations=INDIA+${destinations}&sensor=false&key=${googleApiKey}`;
   try {
@@ -41,7 +42,7 @@ exports.getNearByUsers = catchAsync(async (req, res, next) => {
         },
       },
     },
-    { $limit: 6 },
+    { $limit: 10 },
   ]);
 
   const diatancePromises = userArray.map(
