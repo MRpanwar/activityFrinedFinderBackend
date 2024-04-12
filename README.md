@@ -1,4 +1,4 @@
-# Node Ai Service
+# Activity Friend Finder Backend
 
 ## Project setup
 
